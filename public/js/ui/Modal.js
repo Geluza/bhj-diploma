@@ -27,7 +27,7 @@ class Modal {
    * (с помощью метода Modal.onClose)
    * */
   registerEvents() {
-      const closeModal = Array.from(this.element.querySelector('[data-dismiss = "modal"]'));
+      const closeModal = this.element.querySelector('[data-dismiss = "modal"]');
       for(let i = 0; i < closeModal.length; i++) {
       closeModal[i].onclick = function() {
          this.onClose.bind(this);

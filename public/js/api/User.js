@@ -29,7 +29,7 @@ class User {
    * из локального хранилища
    * */
   static current() {
-    if(user === undefined) {
+    if(User === undefined) {
       return undefined;
     } else {
       return JSON.parse(localStorage.user)

@@ -12,18 +12,17 @@ let formData;
 
 
 
+
 if(options.method === "GET") {
-    for (let key in options.data) {
-        url += "?" + `$key` + "&" + `options.data[key]`;
-    }
-} else  {
-    url += options.url;
-    formData = new formData();
-    for(let item in options.data) {
-    formData.append(item, options.data[item]);
+    url = url + options.data;
+} 
+
+ formData = new FormData();
+ for(let item in options.data) {
+ formData.append(item, options.data[item]);
 }
-}
-xhr.open(options.method, url)
+
+xhr.open(options.method, options.url)
 xhr.send(formData)
 
 xhr.addEventListener("readysatechange", function() {
