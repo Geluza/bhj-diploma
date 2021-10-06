@@ -8,8 +8,12 @@ class User {
    * Устанавливает текущего пользователя в
    * локальном хранилище.
    * */
-  static setCurrent(user) {
+  static URL = "/user";
+  
 
+
+  static setCurrent(user) {
+    localStorage.user = JSON.stringify(user);
   }
 
   /**
@@ -17,7 +21,7 @@ class User {
    * пользователе из локального хранилища.
    * */
   static unsetCurrent() {
-
+    delete localStorage.user
   }
 
   /**
@@ -25,14 +29,30 @@ class User {
    * из локального хранилища
    * */
   static current() {
-
+    if(user === undefined) {
+      return undefined;
+    } else {
+      return JSON.parse(localStorage.user)
+    }
   }
 
   /**
    * Получает информацию о текущем
    * авторизованном пользователе.
    * */
-  static fetch(callback) {
+  static fetch(callback) { 
+   createRequest({
+     url: User.URL + "/current",
+     method: 'GET',
+     responseType:'json',
+     callback: (err, response) => {
+      if(response.success === false) {
+        this.unsetCurrent();
+      } else if(response.success === true) {
+        this.unsetCurrent();
+      }
+    }
+   })
 
   }
 
@@ -47,7 +67,7 @@ class User {
       url: this.URL + '/login',
       method: 'POST',
       responseType: 'json',
-      data,
+      data: data,
       callback: (err, response) => {
         if (response && response.user) {
           this.setCurrent(response.user);
@@ -64,7 +84,19 @@ class User {
    * User.setCurrent.
    * */
   static register(data, callback) {
-
+    createRequest({
+      url: this.URL + '/register',
+      method: 'POST',
+      responseType: 'json',
+      data: data,
+      callback: (err, response) => {
+        if (response.success === true) {
+          this.setCurrent(response.user);
+          console.log("Пользователь зарегистрирован")
+        } 
+        callback(err, response);
+      }
+    });
   }
 
   /**
@@ -72,6 +104,17 @@ class User {
    * выхода необходимо вызвать метод User.unsetCurrent
    * */
   static logout(callback) {
-
+    createRequest({
+      url: this.URL + '/logout',
+      method: 'POST',
+      responseType: 'json',
+      data: data,
+      callback: (err, response) => {
+        if (response.success === true) {
+          this.unsetCurrent();
+        }
+        callback(err, response);
+      }
+    });
   }
 }
