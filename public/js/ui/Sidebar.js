@@ -23,7 +23,6 @@ class Sidebar {
 
     btnToggle.onclick = function() {
       sidebarMini.classList.toggle("sidebar-open", "sidebar-collapse");
-      return false;
     }
   }
 
@@ -47,7 +46,7 @@ class Sidebar {
     
     enter.onclick = function() {
       const modalLogin = App.getModal('login');
-      modalLogin.open(document.getElementById('login'))
+      modalLogin.open()
     }
     
     output.onclick = function() {
