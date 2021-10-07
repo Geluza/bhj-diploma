@@ -27,10 +27,12 @@ class Modal {
    * (с помощью метода Modal.onClose)
    * */
   registerEvents() {
-      const closeModal = this.element.querySelector("[data-dismiss = 'modal']");
-      closeModal.onclick = function() {
-          this.onClose();
-        }  
+      let context = this;
+      const closeModal = this.element.querySelectorAll("[data-dismiss = 'modal']");
+      closeModal.forEach(elem => 
+        elem.onclick = function() {
+          context.onClose(this);
+        } ) 
   }
 
   /**
