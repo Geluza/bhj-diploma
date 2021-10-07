@@ -22,7 +22,9 @@ class Sidebar {
     const sidebarMini = document.getElementsByClassName("sidebar-mini")[0];
 
     btnToggle.onclick = function() {
-      sidebarMini.classList.toggle("sidebar-open", "sidebar-collapse");
+      sidebarMini.classList.toggle("sidebar-open");
+      sidebarMini.classList.toggle("sidebar-collapse");
+      return false;
     }
   }
 
