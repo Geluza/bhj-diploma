@@ -10,7 +10,7 @@ class RegisterForm extends AsyncForm {
    * и закрывает окно, в котором находится форма
    * */
   onSubmit(data) {
-    function callbackRegister() { 
+    User.register (data, (err, response) => { 
     if(response.success === true) {
       let registerForm = document.getElementById('register-form');
       registerForm.reset();
@@ -18,7 +18,6 @@ class RegisterForm extends AsyncForm {
       App.getModal('register');
       Modal.close();
     }
-  }
-    User.register(data, callbackRegister);
-  }
+  })  
+}
 }
