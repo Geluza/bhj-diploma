@@ -4,20 +4,15 @@
  * */
 class Entity {
 
-static url() {
-  let url = '';
-}
-  /**
-   * Запрашивает с сервера список данных.
-   * Это могут быть счета или доходы/расходы
-   * (в зависимости от того, что наследуется от Entity)
-   * */
+static URL = "";
+
   static list(data, callback){
 
     createRequest({
-      url: url,
+      url: this.URL,
       data: data,
-      method: GET,
+      method: "GET",
+      responseType: 'json',
       callback: callback
     })
 
@@ -31,9 +26,10 @@ static url() {
   static create(data, callback) {
 
       createRequest({
-        url: url,
+        url: this.URL,
         data: data,
-        method: PUT,
+        method: "PUT",
+        responseType: 'json',
         callback: callback
       })
   }
@@ -45,10 +41,11 @@ static url() {
   static remove(data, callback ) {
 
       createRequest({
-        url: url,
+        url: this.URL,
         data: data,
-        method: DELETE,
-        callback: callback
+        method: "DELETE",
+        responseType: 'json',
+        callback: callback,
       })
   }
 }

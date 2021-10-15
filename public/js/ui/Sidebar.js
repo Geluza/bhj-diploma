@@ -52,13 +52,13 @@ class Sidebar {
     }
     
     output.onclick = function() {
-       User.logout();
+       User.logout( (err, response) => {
        if(response.success === true) {
          App.setState('init')
        }
-    }
+    })
  
   }
 }
 
-
+}

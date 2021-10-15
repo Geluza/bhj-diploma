@@ -15,12 +15,11 @@ class AsyncForm {
   constructor(element) {
      if(element) {
      this.element = element;
-    
+     this.registerEvents();
      } else if(!element) {
        throw new Error("Элемент не существует!");
      }
-     this.registerEvents();
-    
+       
   }
 
   /**

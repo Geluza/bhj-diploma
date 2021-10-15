@@ -21,7 +21,7 @@ class User {
    * пользователе из локального хранилища.
    * */
   static unsetCurrent() {
-    delete localStorage.user
+    localStorage.removeItem('user');
   }
 
   /**
@@ -32,7 +32,7 @@ class User {
     if(User === undefined) {
       return undefined;
     } else {
-      return JSON.parse(localStorage.user)
+      return JSON.parse(localStorage.user);
     }
   }
 
@@ -42,16 +42,17 @@ class User {
    * */
   static fetch(callback) { 
    createRequest({
-     url: User.URL + "/current",
+     url: this.URL + "/current",
      method: 'GET',
      responseType:'json',
      callback: (err, response) => {
-      if(response.success === false) {
-        this.unsetCurrent();
-      } else if(response.success === true) {
+      if(response && response.user) {
+        this.setCurrent(response.user);
+      } else {
         this.unsetCurrent();
       }
-    }
+    callback(err, response);
+     }
    })
 
   }
@@ -108,12 +109,10 @@ class User {
       url: this.URL + '/logout',
       method: 'POST',
       responseType: 'json',
-      data: data,
       callback: (err, response) => {
-        if (response.success === true) {
+        if (response.success) {
           this.unsetCurrent();
         }
-        callback(err, response);
       }
     });
   }
