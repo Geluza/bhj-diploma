@@ -1,4 +1,4 @@
-/**
+ /**
  * Класс AccountsWidget управляет блоком
  * отображения счетов в боковой колонке
  * */
@@ -66,7 +66,7 @@ class AccountsWidget {
    * в боковой колонке
    * */
   clear() {
-     this.element.querySelectorAll(".account").forEach(account => this.remove());
+     Array.from(this.element.querySelectorAll(".account")).forEach(account => account.remove());
   }
 
   /**

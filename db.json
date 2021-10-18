@@ -17,6 +17,35 @@
       "email": "kgeluza@mail.ru",
       "password": "1",
       "id": "ap38p5a4wkufs30gt"
+    },
+    {
+      "email": "ivan@poselok.ru",
+      "password": "odinodin",
+      "id": "ap38p563kkuindnyk"
+    },
+    {
+      "name": "Гелюза",
+      "email": "c@mail.ru",
+      "password": "12",
+      "id": "ap38p540skul451yp"
+    },
+    {
+      "name": "Гелюза",
+      "email": "a@mail.ru",
+      "password": "1",
+      "id": "ap38p5qgkul6ffls"
+    },
+    {
+      "name": "Гелюза",
+      "email": "12@mail.ru",
+      "password": "1",
+      "id": "ap38p542wkum632aw"
+    },
+    {
+      "name": "Valentina",
+      "email": "289@mail.ru",
+      "password": "1",
+      "id": "ap38p5ackkus7e1g1"
     }
   ],
   "accounts": [
@@ -34,6 +63,46 @@
       "name": "Бизнес",
       "user_id": "1",
       "id": "3"
+    },
+    {
+      "name": "sber",
+      "user_id": "ap38p563kkuindnyk",
+      "id": "ap38p5cxckupwhl88"
+    },
+    {
+      "name": "сбер",
+      "user_id": "ap38p563kkuindnyk",
+      "id": "ap38p58ekkupwo69o"
+    },
+    {
+      "name": "альфа",
+      "user_id": "ap38p5ackkus7e1g1",
+      "id": "ap38p57vwkus7i6kc"
+    },
+    {
+      "name": "bnnm",
+      "user_id": "ap38p563kkuindnyk",
+      "id": "ap38p5akckuwsld02"
+    },
+    {
+      "name": "mm,,",
+      "user_id": "ap38p5a4wkufs30gt",
+      "id": "ap38p5u4kuwt57iz"
+    },
+    {
+      "name": "зарплата",
+      "user_id": "ap38p5a4wkufs30gt",
+      "id": "ap38p5bxskuwta1oe"
+    },
+    {
+      "name": "bbb",
+      "user_id": "ap38p5a4wkufs30gt",
+      "id": "ap38p52twkuwv73pg"
+    },
+    {
+      "name": "ccvvbb",
+      "user_id": "ap38p563kkuindnyk",
+      "id": "ap38p5alckuwvblqt"
     }
   ],
   "transactions": [
