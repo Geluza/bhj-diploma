@@ -12,7 +12,7 @@ const createRequest = (options) => {
  if (options.method === "GET") {
   options.url = "?"
   for(let item in options.data) {
-   options.url += `&${item}=${options.data[item]}`
+   options.url += `${item}=${options.data[item]}&`
   }
     xhr.open(options.method, options.url);
     xhr.send()

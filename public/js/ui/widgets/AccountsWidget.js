@@ -35,7 +35,7 @@ class AccountsWidget {
       createAccount.onclick = function() {
         App.getModal('createAccount').open()
       }
-      Array.from(document.getElementsByClassName("account")).forEach(account => account.onclick = function() {this.onSelectAccount()})
+      Array.from(document.getElementsByClassName("account")).forEach(account => account.onclick = function() {this.onSelectAccount(account)})
       
   }
 
@@ -54,7 +54,7 @@ class AccountsWidget {
       Account.list(User.current(), (err, response) => {
         if(response.success){
           this.clear();
-          Array.from(document.getElementsByClassName("account")).forEach(account => this.renderItem())
+           response.data.forEach(account => this.renderItem(account))
     }
   })
 }
