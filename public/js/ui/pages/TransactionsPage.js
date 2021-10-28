@@ -36,7 +36,8 @@ class TransactionsPage {
    * */
   
   registerEvents() {
-    Array.from(document.querySelectorAll(".remove-account")).forEach(item => item.onclick = function() {
+    const removeAccount = Array.from(document.querySelectorAll(".remove-account"));
+    removeAccount.forEach(item => item.onclick = function() {
       this.removeAccount();
     });
     const removeTrans = Array.from(document.querySelectorAll(".transaction__remove"));
@@ -92,18 +93,17 @@ class TransactionsPage {
    * */
   
   render(options){
+    if(options) {
     this.lastOptions = options;
      Account.get(options.account_id, (err, response) => {
        if(response.success) {
          this.renderTitle(response.data.name);
-         Transactions.list(options, (err, response) => {
+       Transactions.list(options, (err, response) => {
           if(response.success) {
             this.renderTransactions(response.data);
-          }
-        })
-       }
-     })
-    
+         }})
+        }})
+     }  
   }
 
   /**
