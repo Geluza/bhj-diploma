@@ -10,10 +10,10 @@ static URL = "";
 
     createRequest({
       url: this.URL,
-      data: data,
       method: "GET",
       responseType: 'json',
-      callback: callback
+      callback, 
+      data
     })
 
   }

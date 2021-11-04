@@ -36,14 +36,19 @@ class TransactionsPage {
    * */
   
   registerEvents() {
-    const removeAccount = Array.from(document.querySelectorAll(".remove-account"));
-    removeAccount.forEach(item => item.onclick = function() {
-      this.removeAccount();
-    });
-    const removeTrans = Array.from(document.querySelectorAll(".transaction__remove"));
-    removeTrans.forEach(item => item.onclick = function() {
-       this.removeTransaction(item.dataset.id)
+    let context = this;
+    const removeAcc = document.getElementsByClassName("remove-account")[0];
+    removeAcc.onclick = function(e) {
+      e.preventDefault();
+      context.removeAccount();
+    };
+    this.element.addEventListener("click", (e) => {
+      const removeTrans = e.target.closest('.transaction__remove');
+      if(removeTrans) {
+        this.removeTransaction(removeTrans.dataset.id)
+      }
     })
+  
   }
 
   /**
@@ -55,19 +60,19 @@ class TransactionsPage {
    * либо обновляйте только виджет со счетами
    * для обновления приложения
    * */
-  
-  removeAccount() {
-     if(this.lastOptions) {
-      if(confirm("Вы действительно хотите удалить счёт?")){
-    Account.remove(this.lastOptions.account_id, (err, response) => {
-      if(response.success) {
-        this.clear();
-        App.updateWidgets()
-      }
-    })
+
+ removeAccount() {
+  if (this.lastOptions) {
+    if (confirm("Вы действительно хотите удалить счёт?")) {
+      Account.remove({ id: this.lastOptions.account_id }, (error, response) => {
+        if (response.success === true) {
+          App.updateWidgets();
+        }
+      });
+      this.clear();
     }
-     }
   }
+  } 
 
   /**
    * Удаляет транзакцию (доход или расход). Требует
@@ -78,7 +83,7 @@ class TransactionsPage {
   
   removeTransaction( id ) {
     if(confirm("Вы действительно хотите удалить транзакцию?")) {
-     Transaction.remove(id, (err, response) => {
+     Transaction.remove({id}, (error, response) => {
        if(response.success) {
        App.update();
        }
@@ -95,14 +100,16 @@ class TransactionsPage {
   render(options){
     if(options) {
     this.lastOptions = options;
-     Account.get(options.account_id, (err, response) => {
-       if(response.success) {
-         this.renderTitle(response.data.name);
-       Transactions.list(options, (err, response) => {
-          if(response.success) {
-            this.renderTransactions(response.data);
-         }})
-        }})
+    Account.get( options.account_id, (err,response) => {
+        if (response.success) {
+          this.renderTitle(response.data.name);
+          Transaction.list( options, (err, response) => {
+              if (response.success) {
+                this.renderTransactions(response.data);
+              }
+            })
+          }
+       });
      }  
   }
 
@@ -112,9 +119,9 @@ class TransactionsPage {
    * Устанавливает заголовок: «Название счёта»
    * */
    clear() {
-    this.renderTransactions();
+    this.renderTransactions([]);
     this.renderTitle('Название счета');
-    this.lastOptions = '';
+    this.lastOptions = null;
   }
 
 /**
@@ -129,7 +136,20 @@ class TransactionsPage {
  * в формат «10 марта 2019 г. в 03:20»
  * */
 formatDate(date){
+  const monthsArr = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+  const d = new Date(date);
+  let hours = d.getHours();
+  if(hours < 10) {
+    hours = "0" + hours;
+  }
+  let minutes = d.getMinutes();
+  if(minutes < 10) {
+    minutes = "0" + minutes;
+  }
 
+  const resultDate = d.getDate() + " " + monthsArr[d.getMonth()] + " " + d.getFullYear() + "г. в" + hours + ":" + minutes;
+
+  return resultDate
 }
  /**
    * Формирует HTML-код транзакции (дохода или расхода).
@@ -169,7 +189,7 @@ formatDate(date){
    * */
   
   renderTransactions(data){
-    const content = document.getElementsByClassName("content")[0];
-    data.forEach(item => content.insertAdjacentHTML('beforeend', this.getTransactionHTML(item)))
+    this.element.querySelector(".content").innerHTML = '';
+    data.forEach(item => this.element.querySelector('.content').innerHTML += this.getTransactionHTML(item));
   }
 } 

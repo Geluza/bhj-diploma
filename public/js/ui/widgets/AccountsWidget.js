@@ -35,7 +35,14 @@ class AccountsWidget {
       createAccount.onclick = function() {
         App.getModal('createAccount').open()
       }
-      Array.from(document.getElementsByClassName("account")).forEach(account => account.onclick = function() {this.onSelectAccount(account)})
+      const accPanel = document.getElementsByClassName("accounts-panel")[0];
+      accPanel.addEventListener("click", (e) => {
+        e.preventDefault();
+        const account = e.target.closest('.account');
+        if(account) {
+          this.onSelectAccount(account)
+        }
+      })
       
   }
 
@@ -77,9 +84,10 @@ class AccountsWidget {
    * Вызывает App.showPage( 'transactions', { account_id: id_счёта });
    * */
   onSelectAccount( element ) {
-    const accounts = document.getElementsByClassName(".account");
-    const findAcc = accounts.findIndex(account => account.classList.contains("active"));
-    accounts[findAcc].classList.remove("active");
+    const accountActive = document.querySelector(".account.active");
+    if(accountActive) {
+    accountActive.classList.remove("active");
+    }
     element.classList.add("active");
     App.showPage('transactions', {account_id: element.dataset.id});
   }

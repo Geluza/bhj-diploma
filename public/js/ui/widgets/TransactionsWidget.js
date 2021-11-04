@@ -26,11 +26,13 @@ class TransactionsWidget {
    * экземпляра окна
    * */
   registerEvents() {
-     document.querySelector(".create-income-button").onclick = function() {
+     document.querySelector(".create-income-button").onclick = function(e) {
+       e.preventDefault();
        App.getModal("newIncome").open();
      }
 
-     document.querySelector(".create-expense-button").onclick = function() {
+     document.querySelector(".create-expense-button").onclick = function(e) {
+       e.preventDefault();
        App.getModal("newExpense").open();
      }
   }

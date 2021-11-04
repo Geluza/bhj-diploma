@@ -65,11 +65,6 @@
       "id": "3"
     },
     {
-      "name": "sber",
-      "user_id": "ap38p563kkuindnyk",
-      "id": "ap38p5cxckupwhl88"
-    },
-    {
       "name": "сбер",
       "user_id": "ap38p563kkuindnyk",
       "id": "ap38p58ekkupwo69o"
@@ -80,29 +75,19 @@
       "id": "ap38p57vwkus7i6kc"
     },
     {
-      "name": "bnnm",
+      "name": "альфабанк",
       "user_id": "ap38p563kkuindnyk",
-      "id": "ap38p5akckuwsld02"
+      "id": "ap38p53jkkv70l7ka"
     },
     {
-      "name": "mm,,",
+      "name": "новый счёт",
       "user_id": "ap38p5a4wkufs30gt",
-      "id": "ap38p5u4kuwt57iz"
+      "id": "ap38p585ckvf315zx"
     },
     {
-      "name": "зарплата",
+      "name": "тинькоф",
       "user_id": "ap38p5a4wkufs30gt",
-      "id": "ap38p5bxskuwta1oe"
-    },
-    {
-      "name": "bbb",
-      "user_id": "ap38p5a4wkufs30gt",
-      "id": "ap38p52twkuwv73pg"
-    },
-    {
-      "name": "ccvvbb",
-      "user_id": "ap38p563kkuindnyk",
-      "id": "ap38p5alckuwvblqt"
+      "id": "ap38p58mskvl3zth3"
     }
   ],
   "transactions": [
@@ -240,6 +225,105 @@
       "sum": 300000,
       "type": "expense",
       "user_id": "1"
+    },
+    {
+      "id": "ap38p54kokvl7d5s6",
+      "type": "income",
+      "name": "дивиденды",
+      "sum": 2000,
+      "account_id": "ap38p58mskvl3zth3",
+      "user_id": "ap38p5a4wkufs30gt",
+      "created_at": "2021-11-04T17:08:15.365Z"
+    },
+    {
+      "id": "ap38p5c98kvl7do95",
+      "type": "expense",
+      "name": "роллы",
+      "sum": 500,
+      "account_id": "ap38p58mskvl3zth3",
+      "user_id": "ap38p5a4wkufs30gt",
+      "created_at": "2021-11-04T17:08:39.304Z"
+    },
+    {
+      "id": "ap38p59mkkvl7fb1z",
+      "type": "income",
+      "name": "аванс",
+      "sum": 20000,
+      "account_id": "ap38p585ckvf315zx",
+      "user_id": "ap38p5a4wkufs30gt",
+      "created_at": "2021-11-04T17:09:55.510Z"
+    },
+    {
+      "id": "ap38p5f9kkvl7fmgm",
+      "type": "expense",
+      "name": "доширак",
+      "sum": 100,
+      "account_id": "ap38p585ckvf315zx",
+      "user_id": "ap38p5a4wkufs30gt",
+      "created_at": "2021-11-04T17:10:10.293Z"
+    },
+    {
+      "id": "ap38p5sokvl7h4k4",
+      "type": "expense",
+      "name": "кино",
+      "sum": 700,
+      "account_id": "ap38p585ckvf315zx",
+      "user_id": "ap38p5a4wkufs30gt",
+      "created_at": "2021-11-04T17:11:20.403Z"
+    },
+    {
+      "id": "ap38p54pskvl7k3l9",
+      "type": "income",
+      "name": "консультация",
+      "sum": 2000,
+      "account_id": "ap38p585ckvf315zx",
+      "user_id": "ap38p5a4wkufs30gt",
+      "created_at": "2021-11-04T17:13:39.116Z"
+    },
+    {
+      "id": "ap38p55yokvl7oanq",
+      "type": "income",
+      "name": "премия",
+      "sum": 5000,
+      "account_id": "ap38p585ckvf315zx",
+      "user_id": "ap38p5a4wkufs30gt",
+      "created_at": "2021-11-04T17:16:54.901Z"
+    },
+    {
+      "id": "ap38p58jckvl7ox8r",
+      "type": "expense",
+      "name": "акции",
+      "sum": 800,
+      "account_id": "ap38p585ckvf315zx",
+      "user_id": "ap38p5a4wkufs30gt",
+      "created_at": "2021-11-04T17:17:24.170Z"
+    },
+    {
+      "id": "ap38p53lokvl7r1ij",
+      "type": "expense",
+      "name": "долг",
+      "sum": 3800,
+      "account_id": "ap38p585ckvf315zx",
+      "user_id": "ap38p5a4wkufs30gt",
+      "created_at": "2021-11-04T17:19:03.018Z"
+    },
+    {
+      "id": "ap38p5blokvl7rlgh",
+      "type": "income",
+      "name": "дивиденды",
+      "sum": 800,
+      "account_id": "ap38p58mskvl3zth3",
+      "user_id": "ap38p5a4wkufs30gt",
+      "created_at": "2021-11-04T17:19:28.864Z"
+    },
+    {
+      "id": "ap38p53kkvl7ryvb",
+      "type": "expense",
+      "name": "пицца",
+      "sum": 600,
+      "account_id": "ap38p585ckvf315zx",
+      "user_id": "ap38p5a4wkufs30gt",
+      "created_at": "2021-11-04T17:19:46.246Z"
     }
   ]
 }
